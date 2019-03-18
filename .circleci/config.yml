@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: halu5071/edwards-doc:1.8
+    environment:
+      _JAVA_OPTIONS: "-Xms2048m -Xmx2048m"
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}
+      - run:
+          name: Unit Test
+          command: |
+            ./gradlew test --stacktrace

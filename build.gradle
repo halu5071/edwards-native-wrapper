@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'io.moatwel'
+version '0.1.0-alpha'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "net.java.dev.jna:jna:5.2.0"
+    compile "net.java.dev.jna:jna-platform:5.2.0"
+    
+    testCompile "junit:junit:4.12"
+}

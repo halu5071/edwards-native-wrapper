@@ -1,0 +1,3 @@
+rootProject.name = 'edwards-native'
+findProject(':native')?.name = 'edwards-native'
+
